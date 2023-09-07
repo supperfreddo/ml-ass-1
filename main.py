@@ -22,16 +22,16 @@ input("\nPress Enter to continue...")
 #### To Do
 
 # distibution of a feature
-# plt.hist(df['sepal_length'],8)
-# plt.xlabel('sepal_length')
-# plt.ylabel('frequency')
-# plt.show()
+plt.hist(df['rarity'],6) #what does bin here mean?
+plt.xlabel('rarity')
+plt.ylabel('frequency')
+plt.show()
 
-# input("\nPress Enter to continue...")
+input("\nPress Enter to continue...")
 
 # correlations
-# print("\nCORRELATIONS:")
-# print(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].corr())
+print("\nCORRELATIONS:")
+print(df[['power', 'toughness']].corr())
 
 # input("\nPress Enter to continue...")
 
