@@ -27,13 +27,13 @@ plt.show()
 
 input("\nPress Enter to continue...")
 
-# remove rows with missing values in column power, toughness, cmc
-df = df.dropna(subset=['power', 'toughness', 'cmc'])
-
 # convert rows with string values to flot in column power, toughness, cmc
 df['power'] = pd.to_numeric(df['power'], errors='coerce')
 df['toughness'] = pd.to_numeric(df['toughness'], errors='coerce')
 df['cmc'] = pd.to_numeric(df['cmc'], errors='coerce')
+
+# remove rows with missing values in column power, toughness, cmc
+df = df.dropna(subset=['power', 'toughness', 'cmc'])
 
 # print amount of rows after deleting missing values
 print("Number of samples after deleting missing values: "+str(df.shape[0]))
@@ -63,3 +63,23 @@ print("\nMeans of transformed data:")
 print(df_scaled.mean())
 print("\nStandard deviations of transformed data:")
 print(df_scaled.std())
+
+
+
+#### Naive Bayes
+print("\nNaive Bayes:")
+# import libraries
+from sklearn.naive_bayes import GaussianNB
+
+# split data into features and target
+X = df[['power', 'toughness', 'cmc']]
+y = df['rarity']
+
+# build a Naïve Bayes model
+clf = GaussianNB()
+clf.fit(X.values, y)
+
+
+# use the model to predict new example
+predicted = clf.predict([[2, 1, 30]])
+print(predicted)
