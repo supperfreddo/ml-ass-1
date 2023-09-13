@@ -29,8 +29,8 @@ print("Number of rows:", df.shape[0])
 print("Number of columns:", df.shape[1])
 
 # # Check for missing values
-# print("Missing values:")
-# print(df.isna().sum())
+print("Missing values:")
+print(df.isna().sum())
 
 # # Create a mask to filter cards with rarity 'Rare'
 # rare_mask = df['rarity'] == 'Rare'
