@@ -55,35 +55,67 @@ print("Number of columns:", df.shape[1])
 # print("Correlation Matrix:")
 # print(correlation_matrix)
 
-#### To Do
-
 # distibution of a feature
-# plt.hist(df['sepal_length'],8)
-# plt.xlabel('sepal_length')
-# plt.ylabel('frequency')
-# plt.show()
+plt.hist(df['rarity'], 8)
+plt.xlabel('rarity')
+plt.ylabel('frequency')
+plt.show()
 
-# input("\nPress Enter to continue...")
+input("\nPress Enter to continue...")
+
+# convert rows with string values to flot in column power, toughness, cmc
+df['power'] = pd.to_numeric(df['power'], errors='coerce')
+df['toughness'] = pd.to_numeric(df['toughness'], errors='coerce')
+df['cmc'] = pd.to_numeric(df['cmc'], errors='coerce')
+
+# remove rows with missing values in column power, toughness, cmc
+df = df.dropna(subset=['power', 'toughness', 'cmc'])
+
+# print amount of rows after deleting missing values
+print("Number of samples after deleting missing values: "+str(df.shape[0]))
 
 # correlations
-# print("\nCORRELATIONS:")
-# print(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']].corr())
+print("\nCORRELATIONS:")
+print(df[['power', 'toughness', 'cmc']].corr())
 
-# input("\nPress Enter to continue...")
+input("\nPress Enter to continue...")
 
 #### Scaling: z-score normalization
-# print("\nSCALING")
-# from sklearn import preprocessing
-# scaler = preprocessing.StandardScaler()
-# df_scaled = scaler.fit_transform(df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']])
-# df_scaled = pd.DataFrame(df_scaled, columns=df.columns[0:4])
+print("\nSCALING")
+from sklearn import preprocessing
+scaler = preprocessing.StandardScaler()
+df_scaled = scaler.fit_transform(df[['power', 'toughness', 'cmc']])
+# 5 = cmc, 16 = power, 17 = toughness
+df_scaled = pd.DataFrame(df_scaled, columns=df.columns[[5, 16, 17]])
 
+
+#### To Do
 # print("\nMeans of original data:")
 # print(df.mean())
 # print("\nStandard deviations of original data:")
 # print(df.std())
 
-# print("\nMeans of transformed data:")
-# print(df_scaled.mean())
-# print("\nStandard deviations of transformed data:")
-# print(df_scaled.std())
+print("\nMeans of transformed data:")
+print(df_scaled.mean())
+print("\nStandard deviations of transformed data:")
+print(df_scaled.std())
+
+
+
+#### Naive Bayes
+print("\nNaive Bayes:")
+# import libraries
+from sklearn.naive_bayes import GaussianNB
+
+# split data into features and target
+X = df[['power', 'toughness', 'cmc']]
+y = df['rarity']
+
+# build a Naïve Bayes model
+clf = GaussianNB()
+clf.fit(X.values, y)
+
+
+# use the model to predict new example
+predicted = clf.predict([[2, 1, 30]])
+print(predicted)
