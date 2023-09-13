@@ -19,6 +19,25 @@ print("\nNumber of samples: "+str(df.shape[0]))
 
 input("\nPress Enter to continue...")
 
+# Display the first few rows of the dataset
+print(df.head())
+
+# Get basic information about the dataset
+print(df.info())
+
+# Get summary statistics for numeric columns
+print(df.describe())
+
+# Get the number of rows and columns in the dataset
+print("Number of rows:", df.shape[0])
+print("Number of columns:", df.shape[1])
+
+# Check for missing values
+print("Missing values:")
+print(df.isna().sum())
+
+
+
 #### To Do
 
 # distibution of a feature
