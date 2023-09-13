@@ -19,6 +19,42 @@ print("\nNumber of samples: "+str(df.shape[0]))
 
 input("\nPress Enter to continue...")
 
+# Display the first few rows of the dataset
+print("\nFirst few rows:")
+print(df.head())
+
+# Get basic information about the dataset
+print("\nBasic info:")
+print(df.info())
+
+# Get summary statistics for numeric columns
+print("\nSummary statistics:")
+print(df.describe())
+
+# Get the number of rows and columns in the dataset
+print("Number of rows:", df.shape[0])
+print("Number of columns:", df.shape[1])
+
+# # Check for missing values
+# print("Missing values:")
+# print(df.isna().sum())
+
+# # Create a mask to filter cards with rarity 'Rare'
+# rare_mask = df['rarity'] == 'Rare'
+# rare_cards = df[rare_mask]
+# print("Rare Cards:")
+# print(rare_cards.head())
+
+# # Find unique card types
+# unique_card_types = np.unique(df['type'])
+# print("Unique Card Types:")
+# print(unique_card_types)
+
+# # Calculate the correlation matrix between numeric attributes
+# correlation_matrix = np.corrcoef(df[['cmc', 'power', 'toughness']], rowvar=False)
+# print("Correlation Matrix:")
+# print(correlation_matrix)
+
 # distibution of a feature
 plt.hist(df['rarity'], 8)
 plt.xlabel('rarity')
