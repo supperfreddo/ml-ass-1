@@ -39,7 +39,21 @@ print("Number of columns:", df.shape[1])
 print("Missing values:")
 print(df.isna().sum())
 
+# Create a mask to filter cards with rarity 'Rare'
+rare_mask = df['rarity'] == 'Rare'
+rare_cards = df[rare_mask]
+print("Rare Cards:")
+print(rare_cards.head())
 
+# Find unique card types
+unique_card_types = np.unique(df['type'])
+print("Unique Card Types:")
+print(unique_card_types)
+
+# Calculate the correlation matrix between numeric attributes
+correlation_matrix = np.corrcoef(df[['converted_mana_cost', 'power', 'toughness']], rowvar=False)
+print("Correlation Matrix:")
+print(correlation_matrix)
 
 #### To Do
 
