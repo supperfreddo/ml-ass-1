@@ -20,12 +20,15 @@ print("\nNumber of samples: "+str(df.shape[0]))
 input("\nPress Enter to continue...")
 
 # Display the first few rows of the dataset
+print("\nFirst few rows:")
 print(df.head())
 
 # Get basic information about the dataset
+print("\nBasic info:")
 print(df.info())
 
 # Get summary statistics for numeric columns
+print("\nSummary statistics:")
 print(df.describe())
 
 # Get the number of rows and columns in the dataset
