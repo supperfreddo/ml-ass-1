@@ -8,13 +8,6 @@ df = pd.read_csv('data/all_mtg_cards.csv', header = 0)
 #### Some data exploration
 # data size
 print("DATA EXPLORATION")
-print("Data sample:")
-print(df[0:5])
-
-print("\nFeatures:")
-for c in df.columns:
-    print("\t"+c)
-
 print("\nNumber of samples: "+str(df.shape[0]))
 
 input("\nPress Enter to continue...")
