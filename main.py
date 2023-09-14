@@ -2,33 +2,39 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#### Load data
+#### 2. Load data
 df = pd.read_csv('data/all_mtg_cards.csv', header = 0)
 
 #### Some data exploration
-# data size
 print("DATA EXPLORATION")
 input("\nPress Enter to continue...")
 
-# Display the first few rows of the dataset
+# 3. Display the first few rows of the dataset
 print("\nFirst few rows:")
 print(df.head())
 
-# Get basic information about the dataset
+# 4. Get basic information about the dataset
 print("\nBasic info:")
 print(df.info())
 
-# Get summary statistics for numeric columns
+# 5. Get summary statistics for numeric columns
 print("\nSummary statistics:")
 print(df.describe())
 
-# Get the number of rows and columns in the dataset
+# 6. Get dimensions / number of rows and columns in the dataset
 print("Number of rows:", df.shape[0])
 print("Number of columns:", df.shape[1])
 
-# # Check for missing values
+# 7.Check for missing values
 print("Missing values:")
 print(df.isna().sum())
+
+# 8. Distribution of a feature
+plt.hist(df['rarity'], 8)
+plt.xlabel('rarity')
+plt.ylabel('frequency')
+plt.show()
+
 
 # # Create a mask to filter cards with rarity 'Rare'
 # rare_mask = df['rarity'] == 'Rare'
@@ -45,12 +51,6 @@ print(df.isna().sum())
 # correlation_matrix = np.corrcoef(df[['cmc', 'power', 'toughness']], rowvar=False)
 # print("Correlation Matrix:")
 # print(correlation_matrix)
-
-# distibution of a feature
-plt.hist(df['rarity'], 8)
-plt.xlabel('rarity')
-plt.ylabel('frequency')
-plt.show()
 
 input("\nPress Enter to continue...")
 
