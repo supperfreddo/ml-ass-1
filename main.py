@@ -34,6 +34,7 @@ plt.hist(df['rarity'], 8)
 plt.xlabel('rarity')
 plt.ylabel('frequency')
 plt.show()
+print("\nDistribution of rarity:")
 print(df['rarity'].value_counts(normalize=True)) # normalize=True to get relative frequencies
 
 
