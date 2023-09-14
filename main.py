@@ -34,6 +34,7 @@ plt.hist(df['rarity'], 8)
 plt.xlabel('rarity')
 plt.ylabel('frequency')
 plt.show()
+print(df['rarity'].value_counts(normalize=True)) # normalize=True to get relative frequencies
 
 
 # # Create a mask to filter cards with rarity 'Rare'
