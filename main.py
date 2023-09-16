@@ -65,16 +65,16 @@ df['cmc'] = pd.to_numeric(df['cmc'], errors='coerce')
 # Remove rows with missing values in column power, toughness, cmc
 df = df.dropna(subset=['power', 'toughness', 'cmc'])
 
-# print amount of rows after deleting missing values
+# Print amount of rows after deleting missing values
 print("Number of samples after deleting missing values: "+str(df.shape[0]))
 
-# correlations
+# 10. Correlations
 print("\nCORRELATIONS:")
 print(df[['power', 'toughness', 'cmc']].corr())
 
 input("\nPress Enter to continue...")
 
-#### Scaling: z-score normalization
+# 11. Scaling: z-score normalization
 print("\nSCALING")
 from sklearn import preprocessing
 scaler = preprocessing.StandardScaler()
