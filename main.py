@@ -37,7 +37,7 @@ plt.show()
 print("\nDistribution of rarity:")
 print(df['rarity'].value_counts(normalize=True)) # normalize=True to get relative frequencies
 
-
+# # # # TO BE REMOVED??
 # # Create a mask to filter cards with rarity 'Rare'
 # rare_mask = df['rarity'] == 'Rare'
 # rare_cards = df[rare_mask]
@@ -55,13 +55,14 @@ print(df['rarity'].value_counts(normalize=True)) # normalize=True to get relativ
 # print(correlation_matrix)
 
 input("\nPress Enter to continue...")
-
-# convert rows with string values to flot in column power, toughness, cmc
+#### Data Preprocessing
+print("\nDATA PREPROCESSING:")
+# 9. Convert rows with string values to float in column power, toughness, cmc
 df['power'] = pd.to_numeric(df['power'], errors='coerce')
 df['toughness'] = pd.to_numeric(df['toughness'], errors='coerce')
 df['cmc'] = pd.to_numeric(df['cmc'], errors='coerce')
 
-# remove rows with missing values in column power, toughness, cmc
+# Remove rows with missing values in column power, toughness, cmc
 df = df.dropna(subset=['power', 'toughness', 'cmc'])
 
 # print amount of rows after deleting missing values
@@ -96,7 +97,7 @@ print(df_scaled.std())
 
 
 #### Naive Bayes
-print("\nNaive Bayes:")
+print("\nNAIVE BAYAS:")
 # import libraries
 from sklearn.naive_bayes import GaussianNB
 
