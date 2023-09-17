@@ -94,7 +94,16 @@ print(df_scaled.mean())
 print("\nStandard deviations of transformed data:")
 print(df_scaled.std())
 
+#### knn
+print("\nKNN:")
+# build a kNN model
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(df_scaled.values, df['rarity'])
 
+# use the model to predict new example
+predicted = knn.predict([[2, 1, 30]])
+print(predicted)
 
 #### Naive Bayes
 print("\nNAIVE BAYAS:")
