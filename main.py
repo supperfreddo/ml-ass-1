@@ -82,17 +82,13 @@ df_scaled = scaler.fit_transform(df[['power', 'toughness', 'cmc']])
 # 5 = cmc, 16 = power, 17 = toughness
 df_scaled = pd.DataFrame(df_scaled, columns=df.columns[[5, 16, 17]])
 
-
-#### To Do
-# print("\nMeans of original data:")
-# print(df.mean())
-# print("\nStandard deviations of original data:")
-# print(df.std())
-
 print("\nMeans of transformed data:")
 print(df_scaled.mean())
 print("\nStandard deviations of transformed data:")
 print(df_scaled.std())
+
+#### test example with power = 2, toughness = 1, cmc = 30
+test_example = [[2, 1, 30]]
 
 #### knn
 print("\nKNN:")
@@ -102,7 +98,7 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(df_scaled.values, df['rarity'])
 
 # use the model to predict new example
-predicted = knn.predict([[2, 1, 30]])
+predicted = knn.predict(test_example)
 print(predicted)
 
 #### Naive Bayes
@@ -118,7 +114,6 @@ y = df['rarity']
 clf = GaussianNB()
 clf.fit(X.values, y)
 
-
 # use the model to predict new example
-predicted = clf.predict([[2, 1, 30]])
+predicted = clf.predict(test_example)
 print(predicted)
