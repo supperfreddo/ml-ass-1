@@ -70,33 +70,33 @@ print(df_scaled.mean())
 print("\nStandard deviations of transformed data:")
 print(df_scaled.std())
 
-#### test example with power = 2, toughness = 1, cmc = 30
+# 12. test example with power = 2, toughness = 1, cmc = 30
 test_example = [[2, 1, 30]]
 
-#### knn
+# 13. KNN
 print("\nKNN:")
 # build a kNN model
 from sklearn.neighbors import KNeighborsClassifier
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(df_scaled.values, df['rarity'])
 
-# use the model to predict new example
+# 14.  use the model to predict new example
 predicted = knn.predict(test_example)
 print(predicted)
 
-#### Naive Bayes
+# 15.  Naive Bayes
 print("\nNAIVE BAYAS:")
 # import libraries
 from sklearn.naive_bayes import GaussianNB
 
-# split data into features and target
+# 16. split data into features and target
 X = df[['power', 'toughness', 'cmc']]
 y = df['rarity']
 
-# build a Naïve Bayes model
+# 17. build a Naïve Bayes model
 clf = GaussianNB()
 clf.fit(X.values, y)
 
-# use the model to predict new example
+# 18.  use the model to predict new example
 predicted = clf.predict(test_example)
 print(predicted)
