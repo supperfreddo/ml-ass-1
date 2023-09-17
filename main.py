@@ -1,8 +1,9 @@
+# 1. Import libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#### 2. Load data
+# 2. Load data
 df = pd.read_csv('data/all_mtg_cards.csv', header = 0)
 
 #### Some data exploration
@@ -70,7 +71,7 @@ print(df_scaled.mean())
 print("\nStandard deviations of transformed data:")
 print(df_scaled.std())
 
-# 12. test example with power = 2, toughness = 1, cmc = 30
+# 12. Test example with power = 2, toughness = 1, cmc = 30
 test_example = [[2, 1, 30]]
 
 # 13. KNN
@@ -84,7 +85,7 @@ knn.fit(df_scaled.values, df['rarity'])
 predicted = knn.predict(test_example)
 print(predicted)
 
-# 14.  Naive Bayes
+# 14. Naive Bayes
 print("\nNAIVE BAYAS:")
 # import libraries
 from sklearn.naive_bayes import GaussianNB
