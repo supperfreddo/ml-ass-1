@@ -80,23 +80,23 @@ from sklearn.neighbors import KNeighborsClassifier
 knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(df_scaled.values, df['rarity'])
 
-# 14.  use the model to predict new example
+# use the model to predict new example
 predicted = knn.predict(test_example)
 print(predicted)
 
-# 15.  Naive Bayes
+# 14.  Naive Bayes
 print("\nNAIVE BAYAS:")
 # import libraries
 from sklearn.naive_bayes import GaussianNB
 
-# 16. split data into features and target
+# split data into features and target
 X = df[['power', 'toughness', 'cmc']]
 y = df['rarity']
 
-# 17. build a Naïve Bayes model
+# build a Naïve Bayes model
 clf = GaussianNB()
 clf.fit(X.values, y)
 
-# 18.  use the model to predict new example
+# 15.  use the model to predict new example
 predicted = clf.predict(test_example)
 print(predicted)
