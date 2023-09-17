@@ -97,6 +97,6 @@ y = df['rarity']
 clf = GaussianNB()
 clf.fit(X.values, y)
 
-# 15.  use the model to predict new example
+# use the model to predict new example
 predicted = clf.predict(test_example)
 print(predicted)
