@@ -37,23 +37,6 @@ plt.show()
 print("\nDistribution of rarity:")
 print(df['rarity'].value_counts(normalize=True)) # normalize=True to get relative frequencies
 
-# # # # TO BE REMOVED??
-# # Create a mask to filter cards with rarity 'Rare'
-# rare_mask = df['rarity'] == 'Rare'
-# rare_cards = df[rare_mask]
-# print("Rare Cards:")
-# print(rare_cards.head())
-
-# # Find unique card types
-# unique_card_types = np.unique(df['type'])
-# print("Unique Card Types:")
-# print(unique_card_types)
-
-# # Calculate the correlation matrix between numeric attributes
-# correlation_matrix = np.corrcoef(df[['cmc', 'power', 'toughness']], rowvar=False)
-# print("Correlation Matrix:")
-# print(correlation_matrix)
-
 input("\nPress Enter to continue...")
 #### Data Preprocessing
 print("\nDATA PREPROCESSING:")
